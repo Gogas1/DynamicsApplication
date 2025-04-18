@@ -23,8 +23,10 @@ namespace DynamicsApplication
 
             var services = serviceCollection.BuildServiceProvider();
 
+            int countToCreate = HandleInput();
+
             var rentGenerator = services.GetService<RentGenerator>();
-            var rents = rentGenerator.GenerateRents(10);
+            var rents = rentGenerator.GenerateRents(countToCreate);
 
             var rentService = services.GetService<RentsService>();
 
@@ -32,6 +34,20 @@ namespace DynamicsApplication
             {
                 rentService.CreateRent(item);
             }
+        }
+
+        private static int HandleInput()
+        {
+            do
+            {
+                Console.WriteLine("How many rents to create?");
+                var input = Console.ReadLine();
+
+                if (int.TryParse(input, out int result))
+                {
+                    return result;
+                }
+            } while (true);
         }
 
         private static void ConfigureServices(IServiceCollection serviceCollection)
