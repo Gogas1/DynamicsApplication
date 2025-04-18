@@ -93,7 +93,6 @@
     <Compile Include="Entities\CarTransferReport.cs" />
     <Compile Include="Entities\Customer.cs" />
     <Compile Include="Entities\Rent.cs" />
-    <Compile Include="Mapping\DomainEntitiesMappingExtensions.cs" />
     <Compile Include="Mapping\DynamicsEntityMappingExtensions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
