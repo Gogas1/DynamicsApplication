@@ -103,7 +103,7 @@ namespace DynamicsApplication.Services
 
         private Customer RollCustomer()
         {
-            var customerIndex = _random.Next(_dataRepository.Cars.Count);
+            var customerIndex = _random.Next(_dataRepository.Customers.Count);
 
             if (_dataRepository.Cars.Count > customerIndex)
             {
