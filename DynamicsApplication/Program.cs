@@ -30,10 +30,21 @@ namespace DynamicsApplication
 
             var rentService = services.GetService<RentsService>();
 
-            foreach (var item in rents)
+            for (int i = 0; i < rents.Count; i++)
             {
-                rentService.CreateRent(item);
+                WriteOneLine($"Created {i}/{rents.Count} rents");
+                rentService.CreateRent(rents[i]);
             }
+            WriteOneLine($"Created {rents.Count} rents");
+        }
+
+        private static void WriteOneLine(string text)
+        {
+            int currLine = Console.CursorTop;
+            Console.SetCursorPosition(0, currLine);
+            Console.WriteLine(new string(' ', Console.WindowWidth));
+            Console.SetCursorPosition(0, currLine);
+            Console.Write(text);
         }
 
         private static int HandleInput()
